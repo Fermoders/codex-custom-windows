@@ -26,6 +26,20 @@ try {
 
     Write-Host "Downloading $($release.tag_name)..."
     Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $archivePath -UseBasicParsing
+
+    if ([string]::IsNullOrWhiteSpace($release.body)) {
+        throw 'The latest release does not publish a SHA-256 checksum.'
+    }
+    $checksumMatch = [Regex]::Match($release.body, '(?im)^SHA-256:\s*([a-f0-9]{64})\s*$')
+    if (-not $checksumMatch.Success) {
+        throw 'Could not parse the release SHA-256 checksum.'
+    }
+    $expectedHash = $checksumMatch.Groups[1].Value.ToLowerInvariant()
+    $actualHash = (Get-FileHash -LiteralPath $archivePath -Algorithm SHA256).Hash.ToLowerInvariant()
+    if ($actualHash -ne $expectedHash) {
+        throw "Release checksum mismatch. Expected $expectedHash, got $actualHash."
+    }
+
     Expand-Archive -LiteralPath $archivePath -DestinationPath $extractRoot -Force
 
     $bundleInstaller = Join-Path $extractRoot 'Install-Codex-Custom.ps1'
