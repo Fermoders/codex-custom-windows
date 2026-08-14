@@ -7,9 +7,7 @@ One-command installer for the custom Codex Desktop runtime and CLIProxyAPI usage
 - Windows 10/11 x64
 - OpenAI Codex installed from Microsoft Store
 - Launch the Store app once, sign in, then close it completely
-- Node.js 22.12+ x64 (
-ode and 
-px must be available)
+- Node.js 22.12+ x64 (`node` and `npx` must be available)
 
 ## Install with one command
 
@@ -36,11 +34,11 @@ Existing releases are retained for rollback. The Microsoft Store installation is
 ## Current release
 
 - Tested Store package: 26.803.10989.0 x64
-- Release asset: $releaseZipName
-- SHA-256: $zipHash
+- Release asset: `codex-custom-win-x64.zip`
+- SHA-256: `06fbc2d4801e6c1f7878ffd64496040ae5d6f1920b9786fc2323c49a4eb4a83f`
 
 ## Security
 
-Review [install.ps1](./install.ps1) before running the one-liner. The bootstrap downloads the latest GitHub Release asset over HTTPS and executes the bundled installer locally. The API key is requested as a SecureString, then saved as the current user's CLIPROXY_API_KEY environment variable for the launcher.
+Review [`install.ps1`](./install.ps1) before running the one-liner. The bootstrap downloads the latest GitHub Release asset over HTTPS and executes the bundled installer locally. The API key is requested as a `SecureString`, then saved as the current user's `CLIPROXY_API_KEY` environment variable for the launcher.
 
 This is an unofficial custom distribution and is not affiliated with OpenAI.
