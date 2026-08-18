@@ -1,4 +1,4 @@
-﻿# Codex Custom for Windows
+# Codex Custom for Windows
 
 One-command installer for the custom Codex Desktop runtime and CLIProxyAPI usage sidebar.
 
