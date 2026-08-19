@@ -47,7 +47,12 @@ try {
         throw "Downloaded bundle is missing Install-Codex-Custom.ps1"
     }
 
-    & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $bundleInstaller
+    $bundleArguments = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $bundleInstaller)
+    $existingKey = [Environment]::GetEnvironmentVariable('CLIPROXY_API_KEY', 'User')
+    if (-not [string]::IsNullOrWhiteSpace($existingKey)) {
+        $bundleArguments += '-ReuseExistingKey'
+    }
+    & powershell.exe @bundleArguments
     if ($LASTEXITCODE -ne 0) {
         throw "Codex custom installer failed with exit code $LASTEXITCODE."
     }
