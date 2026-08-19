@@ -5,17 +5,16 @@ One-command installer for the custom Codex Desktop runtime and CLIProxyAPI usage
 ## Requirements
 
 - Windows 10/11 x64
-- OpenAI Codex installed from Microsoft Store
-- Launch the Store app once, sign in, then close it completely
+- App Installer (`winget`) when OpenAI Codex is not installed yet
 - Node.js 22.12+ x64 (`node` and `npx` must be available)
 
 ## Install with one command
 
 Open **PowerShell** and run:
 
-```powershell
+``````powershell
 irm https://raw.githubusercontent.com/Fermoders/codex-custom-windows/main/install.ps1 | iex
-```
+``````
 
 The installer downloads the latest immutable release. It asks for the CLIProxyAPI key **after the script starts**; hidden input keeps it out of PowerShell history. No API key is stored in this repository or release.
 
@@ -25,17 +24,17 @@ After installation, launch **Codex Usage** from the Start menu.
 
 Run the same command again. A different Store version, UI patch, or custom runtime creates a new immutable release under:
 
-```text
+``````text
 %LOCALAPPDATA%\Programs\Codex-Usage\releases
-```
+``````
 
 Existing releases are retained for rollback. The Microsoft Store installation is not modified.
 
 ## Current release
 
-- Tested Store package: 26.803.10989.0 x64
+- Tested Store package: `26.814.5167.0` x64
 - Release asset: `codex-custom-win-x64.zip`
-- SHA-256: `06fbc2d4801e6c1f7878ffd64496040ae5d6f1920b9786fc2323c49a4eb4a83f`
+- SHA-256: `4b4bfc746ba526841ddc54b179be8762ae602278795be9096d5e7cf92fc4d84b`
 
 ## Security
 
