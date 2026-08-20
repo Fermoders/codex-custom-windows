@@ -32,9 +32,9 @@ Existing releases are retained for rollback. The Microsoft Store installation is
 
 ## Current release
 
-- Tested Store package: `26.814.5167.0` x64
+- Tested Store package: `26.814.5517.0` x64
 - Release asset: `codex-custom-win-x64.zip`
-- SHA-256: `665e8e89943e4c2564abe5b815948ad6aa8210d5e584c91f9d4f7e530dea8ad6`
+- SHA-256: `5797ab27ef004ecab87deb966b184bfd73f28208d442cffec13c63d8d214ba58`
 
 ## Security
 
