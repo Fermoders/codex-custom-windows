@@ -18,6 +18,8 @@ irm https://raw.githubusercontent.com/Fermoders/codex-custom-windows/main/instal
 
 The installer downloads the latest immutable release. It asks for the CLIProxyAPI key **after the script starts**; hidden input keeps it out of PowerShell history. No API key is stored in this repository or release.
 
+An existing `config.toml` or `auth.json` is not required. The launcher honors `CODEX_HOME` when configured, otherwise it uses `%USERPROFILE%\.codex`, creates `config.toml` when missing or empty, and preserves an original backup before changing an existing file. An initialized Store profile is reused when available; otherwise the custom app creates a fresh profile on first launch.
+
 After installation, launch **Codex Usage** from the Start menu.
 
 ## Update
@@ -34,7 +36,7 @@ Existing releases are retained for rollback. The Microsoft Store installation is
 
 - Tested Store package: `26.814.5517.0` x64
 - Release asset: `codex-custom-win-x64.zip`
-- SHA-256: `5797ab27ef004ecab87deb966b184bfd73f28208d442cffec13c63d8d214ba58`
+- SHA-256: `903c0354670c69542101df98cbcebeeb58785130c9a487615fea25f21da8ce39`
 
 ## Security
 
