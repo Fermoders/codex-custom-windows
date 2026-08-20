@@ -24,6 +24,20 @@ try {
         throw "Release asset not found: $assetName"
     }
 
+    if ($null -ne $asset.size -and [int64]$asset.size -gt 0) {
+        $bootstrapRequiredBytes = ([int64]$asset.size * 3) + 256MB
+        $tempVolumeRoot = [IO.Path]::GetPathRoot([IO.Path]::GetFullPath($workRoot))
+        try {
+            $tempDrive = [IO.DriveInfo]::new($tempVolumeRoot)
+            if ($tempDrive.IsReady -and $tempDrive.AvailableFreeSpace -lt $bootstrapRequiredBytes) {
+                throw "Not enough free space on $tempVolumeRoot to download and extract the installer. Required at least $('{0:N2} GB' -f ($bootstrapRequiredBytes / 1GB)), available $('{0:N2} GB' -f ($tempDrive.AvailableFreeSpace / 1GB))."
+            }
+        }
+        catch [ArgumentException] {
+            Write-Warning "Could not determine free space for $tempVolumeRoot. The download will perform the final check."
+        }
+    }
+
     Write-Host "Downloading $($release.tag_name)..."
     Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $archivePath -UseBasicParsing
 
