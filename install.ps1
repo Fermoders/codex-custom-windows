@@ -8,6 +8,37 @@ $owner = 'Fermoders'
 $repository = 'codex-custom-windows'
 $assetName = 'codex-custom-win-x64.zip'
 
+function Remove-DirectoryBestEffort {
+    param(
+        [Parameter(Mandatory = $true)][string]$Path
+    )
+
+    $lastError = $null
+    for ($attempt = 1; $attempt -le 3; $attempt++) {
+        if (-not (Test-Path -LiteralPath $Path)) {
+            return
+        }
+        try {
+            Remove-Item -LiteralPath $Path -Recurse -Force -ErrorAction Stop
+            return
+        }
+        catch [System.IO.DirectoryNotFoundException] {
+            if (-not (Test-Path -LiteralPath $Path)) {
+                return
+            }
+            $lastError = $_.Exception
+        }
+        catch {
+            $lastError = $_.Exception
+        }
+        Start-Sleep -Milliseconds (100 * $attempt)
+    }
+
+    if (Test-Path -LiteralPath $Path) {
+        Write-Warning "Could not completely remove temporary directory '$Path': $($lastError.Message)"
+    }
+}
+
 if (-not [Environment]::Is64BitOperatingSystem) {
     throw 'This installer requires 64-bit Windows.'
 }
@@ -72,7 +103,5 @@ try {
     }
 }
 finally {
-    if (Test-Path -LiteralPath $workRoot) {
-        Remove-Item -LiteralPath $workRoot -Recurse -Force
-    }
+    Remove-DirectoryBestEffort -Path $workRoot
 }
