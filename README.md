@@ -19,6 +19,8 @@ irm https://raw.githubusercontent.com/Fermoders/codex-custom-windows/main/instal
 
 The installer downloads the latest immutable release. It asks for the CLIProxyAPI key **after the script starts**; hidden input keeps it out of PowerShell history. No API key is stored in this repository or release.
 
+The launcher maps that key to process-local `OPENAI_API_KEY` and sets `OPENAI_BASE_URL` to CLIProxyAPI, so SDK-based tools such as the explicit `gpt-image-2` CLI use the proxy instead of requiring a separate OpenAI Platform key.
+
 An existing `config.toml` or `auth.json` is not required. The launcher honors `CODEX_HOME` when configured, otherwise it uses `%USERPROFILE%\.codex`, creates `config.toml` when missing or empty, and preserves an original backup before changing an existing file. An initialized Store profile is reused when available; otherwise the custom app creates a fresh profile on first launch.
 
 After installation, launch **Codex Usage** from the Start menu.
@@ -35,9 +37,9 @@ Existing releases are retained for rollback. The Microsoft Store installation is
 
 ## Current release
 
-- Tested Store package: `26.818.5229.0` x64
+- Tested Store package: `26.818.8289.0` x64
 - Release asset: `codex-custom-win-x64.zip`
-- SHA-256: `3e22de782889a141d1a672cb231513054f71a4889230f8ea540fa440458b8c6a`
+- SHA-256: `bd627052fc210fcb83f06b7c3dab39a827d3818e55c77d9609cdc3d70db0ad7f`
 
 ## Security
 
