@@ -5,8 +5,8 @@ One-command installer for the custom Codex Desktop runtime and CLIProxyAPI usage
 ## Requirements
 
 - Windows 10/11 x64
-- App Installer (`winget`) when OpenAI Codex is not installed yet
-- Node.js 22.12+ x64 (`node` and `npx` must be available)
+- App Installer (`winget`) for automatic installation of OpenAI Codex or Node.js when missing
+- Node.js 22.12+ x64 is installed automatically through `winget` when missing
 - Enough free space for a local Codex copy and temporary ASAR extraction; the installer checks this before copying
 
 ## Install with one command
@@ -39,7 +39,7 @@ Existing releases are retained for rollback. The Microsoft Store installation is
 
 - Tested Store package: `26.818.8289.0` x64
 - Release asset: `codex-custom-win-x64.zip`
-- SHA-256: `bd627052fc210fcb83f06b7c3dab39a827d3818e55c77d9609cdc3d70db0ad7f`
+- SHA-256: `9e1d8eba430aa01630c761e83725e05635374c28b13eec6e1f5b2944b8cfd92e`
 
 ## Security
 
