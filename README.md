@@ -35,13 +35,13 @@ Run the same command again. A different Store version, UI patch, or custom runti
 %LOCALAPPDATA%\Programs\Codex-Usage\releases
 ``````
 
-Existing releases are retained for rollback. The Microsoft Store installation is not modified.
+After a successful update, stale releases are removed automatically. A previous release that is still running is retained until the next launch. The Microsoft Store installation is not modified.
 
 ## Current release
 
 - Tested Store package: `26.820.7780.0` x64
 - Release asset: `codex-custom-win-x64.zip`
-- SHA-256: `f7dcab699a0c7590ca97ac61723906d69242d4192810ba18e00e6712c0bea64a`
+- SHA-256: `f5aa03a9ead014c1a0de953624e144628b46ff8ad25e90b75c5eba3e607ec44c`
 
 ## Security
 
