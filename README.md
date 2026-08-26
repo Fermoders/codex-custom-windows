@@ -21,7 +21,7 @@ The installer downloads the latest immutable release. It asks for the CLIProxyAP
 
 The launcher maps that key to process-local `OPENAI_API_KEY` and sets `OPENAI_BASE_URL` to CLIProxyAPI, so SDK-based tools such as the explicit `gpt-image-2` CLI use the proxy instead of requiring a separate OpenAI Platform key.
 
-An existing `config.toml` or `auth.json` is not required. On first launch, with all Codex windows closed, the launcher migrates existing tasks, archives, task indexes, state databases, attachments, authentication, skills, and settings from `CODEX_HOME` into the isolated `%USERPROFILE%\.codex-usage` home. Runtime logs, caches, plugin downloads, temporary files, worktrees, and writer locks are excluded. Existing tasks remain available in Codex Usage without sharing live session files with the Store app. `CODEX_USAGE_HOME` can override the isolated destination.
+An existing `config.toml` or `auth.json` is not required. The launcher keeps the existing `CODEX_HOME`, so current and future tasks stay directly available in both the Store and patched applications. The custom runtime releases an idle thread writer lock 10 seconds after its last UI subscriber disconnects instead of retaining it for 30 minutes; active turns remain protected.
 
 An initialized Store profile is reused when available; otherwise the custom app creates a fresh profile on first launch.
 
@@ -41,7 +41,7 @@ Existing releases are retained for rollback. The Microsoft Store installation is
 
 - Tested Store package: `26.820.7780.0` x64
 - Release asset: `codex-custom-win-x64.zip`
-- SHA-256: `af810e241876bc3e290c4d5b5e1b86ca7a2cf2d459d0e6de55e9f160fe275fa9`
+- SHA-256: `c828fe652f215a67deca46b968dbbc8f3907b205f2a9af394e4493e5e71e5d8a`
 
 ## Security
 
