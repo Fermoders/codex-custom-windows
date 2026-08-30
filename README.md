@@ -14,7 +14,7 @@ One-command installer for the custom Codex Desktop runtime and CLIProxyAPI usage
 Open **PowerShell** and run:
 
 ``````powershell
-irm https://raw.githubusercontent.com/Fermoders/codex-custom-windows/main/install.ps1 | iex
+irm -Headers @{Accept='application/vnd.github.raw+json';'User-Agent'='codex-custom-windows-installer'} 'https://api.github.com/repos/Fermoders/codex-custom-windows/contents/install.ps1?ref=main' | iex
 ``````
 
 The installer downloads the latest immutable release. It asks for the CLIProxyAPI key **after the script starts**; hidden input keeps it out of PowerShell history. No API key is stored in this repository or release.
