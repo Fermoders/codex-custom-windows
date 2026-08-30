@@ -45,6 +45,6 @@ After a successful update, stale releases are removed automatically. A previous 
 
 ## Security
 
-Review [`install.ps1`](./install.ps1) before running the one-liner. The bootstrap downloads the latest GitHub Release asset over HTTPS, verifies its published SHA-256 checksum, and executes the bundled installer locally. The API key is requested as a `SecureString`, then saved as the current user's `CLIPROXY_API_KEY` environment variable for the launcher.
+Review the readable [`bootstrap.ps1`](./bootstrap.ps1) and its single-line [`install.ps1`](./install.ps1) loader before running the one-liner. The bootstrap downloads the latest GitHub Release asset over HTTPS, verifies its published SHA-256 checksum, and executes the bundled installer locally. The API key is requested as a `SecureString`, then saved as the current user's `CLIPROXY_API_KEY` environment variable for the launcher.
 
 This is an unofficial custom distribution and is not affiliated with OpenAI.
