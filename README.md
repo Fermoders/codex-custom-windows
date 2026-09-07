@@ -21,7 +21,9 @@ The installer downloads the latest immutable release. It asks for the CLIProxyAP
 
 The launcher maps that key to process-local `OPENAI_API_KEY` and sets `OPENAI_BASE_URL` to CLIProxyAPI, so SDK-based tools such as the explicit `gpt-image-2` CLI use the proxy instead of requiring a separate OpenAI Platform key.
 
-An existing `config.toml` or `auth.json` is not required. The launcher keeps the existing `CODEX_HOME`, so current and future tasks stay directly available in both the Store and patched applications. The custom runtime releases an idle thread writer lock 10 seconds after its last UI subscriber disconnects instead of retaining it for 30 minutes; active turns remain protected.
+The launcher uses its own `codex-home/config.toml` under the installation root, seeded once from the original profile. It never writes proxy settings into the original config. Session directories and SQLite storage remain shared for access to existing tasks. Other root settings are copied once. The custom runtime releases idle thread writer locks after 10 seconds; active turns remain protected.
+
+On computers with OpenSSH Server installed, installation configures Git Bash as the SSH shell for all users. This requires administrator approval and installs Git for Windows when necessary. Previous shell settings are saved in `C:\ProgramData\Codex-Usage\openssh-shell-original.json`. Existing SSH connections are not terminated.
 
 An initialized Store profile is reused when available; otherwise the custom app creates a fresh profile on first launch.
 
@@ -41,7 +43,7 @@ After a successful update, stale releases are removed automatically. A previous 
 
 - Tested Store package: `26.901.6511.0` x64
 - Release asset: `codex-custom-win-x64.zip`
-- SHA-256: `a469153b2c958724c070172d3cbf4682ad93e3d0734a633552651cd7b2b2ab68`
+- SHA-256: `82ffce8432c68f63151dcf2eb8e3a4dbaa41dc863ff779b4398470c0471912ff`
 
 ## Security
 
