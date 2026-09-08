@@ -43,7 +43,7 @@ After a successful update, stale releases are removed automatically. A previous 
 
 - Tested Store package: `26.901.6511.0` x64
 - Release asset: `codex-custom-win-x64.zip`
-- SHA-256: `784f3ffda9b27cf240e03f9ca74391fa43bbdd94a99024767c9ee73745e36f12`
+- SHA-256: `463fc1f7d950c116bb8277296dcfec43b498edf0c4f8d05d00c1e96cb38bc5b7`
 
 ## Security
 
