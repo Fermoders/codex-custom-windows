@@ -29,6 +29,8 @@ An initialized Store profile is reused when available; otherwise the custom app 
 
 After installation, launch **Codex Usage** from the Start menu.
 
+The patched desktop app is signed and registered as a separate Windows package, alongside the official Store app. On first installation, Windows asks for administrator approval to trust the local **public** signing certificate; its private key stays in the current user's certificate store. When a verified Windows SDK is unavailable, the installer downloads and SHA-256-checks Microsoft Windows SDK BuildTools from NuGet for packaging.
+
 ## Update
 
 Run the same command again. A different Store version, UI patch, or custom runtime creates a new immutable release under:
@@ -41,9 +43,9 @@ After a successful update, stale releases are removed automatically. A previous 
 
 ## Current release
 
-- Tested Store package: `26.908.4834.0` x64
+- Tested Store package: `26.917.6896.0` x64
 - Release asset: `codex-custom-win-x64.zip`
-- SHA-256: `8535cdab985d7708058fddf084d3cc5cf5c27067d2cf10c3d59f7edf225a816c`
+- SHA-256: `6d66af833f7fbd02c9f33b7b155e04728aa55d9bc162f2bcee6ba165b7ac24db`
 
 ## Security
 

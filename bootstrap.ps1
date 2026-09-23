@@ -46,6 +46,7 @@ $extractRoot = Join-Path $workRoot 'bundle'
 
 New-Item -ItemType Directory -Path $workRoot -Force | Out-Null
 try {
+    [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
     $release = Invoke-RestMethod -Uri "https://api.github.com/repos/$owner/$repository/releases/latest" -Headers @{ 'User-Agent' = "$repository-installer" }
     $asset = $release.assets | Where-Object { $_.name -eq $assetName } | Select-Object -First 1
     if ($null -eq $asset) {
